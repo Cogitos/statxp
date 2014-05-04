@@ -1,0 +1,9 @@
+Package: statxp
+Title: Filter, plot and format statistical results
+Version: 0.1
+Authors@R: "Guillaume T. Vallet <gtvallet@gmail.com> [aut, cre]"
+Description: The present package offers differents functions to help the statistical processing such as filtering reaction times (RT), exporting mean (sd), ANOVA, t test to knitr/Sweave documents, and exporting ANOVA analyses to a csv file.
+Depends: R (>= 3.1.0),
+	 plyr
+License: GPLv3
+LazyData: true
