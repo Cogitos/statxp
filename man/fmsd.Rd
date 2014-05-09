@@ -34,6 +34,9 @@ fmsd(data, pm=T)
 \author{
 Guillaume T. Vallet \email{gtvallet@gmail.com}, University of de Montreal (Canada);
 }
+\seealso{
+\code{\link{faov}}, \code{\link{ftt}}
+}
 \keyword{APA,}
 \keyword{Knitr/Sweave}
 \keyword{mean,}

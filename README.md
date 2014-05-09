@@ -17,7 +17,7 @@
 
 ## <a name='licence'></a>Licence
 
-This package is released under the [Attribution-NonCommercial-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+This package is released under the [Creative Common Attribution-NonCommercial-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
 
 ## <a name='install'></a>Installation

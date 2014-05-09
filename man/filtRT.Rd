@@ -74,7 +74,7 @@ Guillaume T. Vallet \email{gtvallet@gmail.com}, University of de Montreal (Canad
 Benoit A. Riou \email{riouba@gmail.com}, Lyon2 University (France)
 }
 \seealso{
-\code{vignette("outliers", package = "statxp")}
+\code{\link{outliers}}
 }
 \keyword{filter,}
 \keyword{outliers}

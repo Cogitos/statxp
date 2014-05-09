@@ -34,6 +34,7 @@
 #'  per condition.
 #' @keywords reaction times, filter, outliers
 #' @export
+#' @seealso \code{\link{outliers}} 
 #' @examples
 #' # Generate fake data with a subject number in the first colum, a fake experimental condition
 #'  in the second column and fake reaction times in the third column

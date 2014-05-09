@@ -12,6 +12,7 @@
 #' @param d A number representing the associated d of Cohen.
 #' @keywords t test, format, APA, knitr/Sweave
 #' @export
+#' @seealso \code{\link{faov}}, \code{\link{fmsd}} 
 #' @examples
 #' # Generate fake data of two groups to be compared
 #' cond1 = rnorm(10, mean=555, sd=45)

@@ -30,6 +30,9 @@ ftt(ttest)
 \author{
 Guillaume T. Vallet \email{gtvallet@gmail.com}, University of de Montreal (Canada);
 }
+\seealso{
+\code{\link{faov}}, \code{\link{fmsd}}
+}
 \keyword{APA,}
 \keyword{format,}
 \keyword{knitr/Sweave}

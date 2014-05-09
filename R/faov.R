@@ -16,6 +16,7 @@
 #'  to the APA guideline.
 #' @keywords ANOVA, APA, Knitr/Sweave
 #' @export
+#' @seealso \code{\link{ftt}}, \code{\link{fmsd}} 
 #' @examples
 #' # Generate fake data with a subject number in the first colum, a
 #' #  fake experimental condition in the second column and fake

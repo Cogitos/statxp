@@ -16,8 +16,8 @@ Return a string reporting an inline ANOVA results according
 }
 \description{
 A function to format a given treatement (i.e. row) of an
-  \code{\link["ez"]{"ezANOVA"}} to a
-  Markdown/LaTeX format according to the APA guidelines.
+  ezANOVA (package "ez") to a Markdown/LaTeX format according
+  to the APA guidelines.
 The output can be directly used in a Knitr/Sweave document.
 The function tests if the Mauchly's test for sphericity is
  significant, and if so, report the corrected values.
@@ -43,7 +43,7 @@ faov(anova, rnb=1)
 Guillaume T. Vallet \email{gtvallet@gmail.com}, University of de Montreal (Canada);
 }
 \seealso{
-\code{\link['ez']{'ez'}}, \code{\link{"knitr"}}
+\code{\link{ftt}}, \code{\link{fmsd}}
 }
 \keyword{ANOVA,}
 \keyword{APA,}

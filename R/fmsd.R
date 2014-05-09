@@ -15,6 +15,7 @@
 #'  deviation (sd) according to the APA guideline.
 #' @keywords mean, sd, APA, Knitr/Sweave
 #' @export
+#' @seealso \code{\link{faov}}, \code{\link{ftt}} 
 #' @examples
 #' # Generate fake data:
 #' data = rnorm(10, mean=555, sd=35)
