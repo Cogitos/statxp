@@ -1,8 +1,9 @@
-#' Remove extreme with thresolds and values below and above the mean
+#' Remove extreme with thresholds values and standard deviation
+#' from the mean
 #' 
 #' A function to remove outliers of a given data frame. Extreme values
-#'  can be excluded based on a minimal/maximal values and/or based on 
-#'  a given standard deviation value.
+#'  can be excluded based on a minimal/maximal values (thresholds) 
+#'  and/or based on a given standard deviation value.
 #' Return a data frame of filtered data as well as the number and
 #'  relative percentage of data filtered.
 #' 

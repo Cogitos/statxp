@@ -1,5 +1,5 @@
-#' Filter reaction times values with low/high values and/or standard
-#'  deviation form the mean
+#' Filter reaction times values with thresholds values and/or standard
+#'  deviation from the mean by condition
 #' 
 #' A function to remove outliers of a given data frame. Based on the
 #'  outliers function of the present package. filtRT applies the 
