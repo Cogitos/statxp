@@ -68,17 +68,15 @@ filtRT = function(dt, RT='RT', vars=NULL, fpass=NULL, sdv=NULL ){
   #                       Filtering only lowest or highest RT value. 
   #                       Adding the percentage of data filtered.
 
-  if( !is.null(sdv) ){
     if( is.null(vars) ){
-      dt.fil = outliers(df, fpass, RT, sdv)
+      dt.fil = outliers(dt, fpass, RT, sdv)
       dt.filtered = dt.fil[[1]]
       filtered = dt.fil[[2]]
     }else{
-      dt.fil = dlply(df, vars, function(x) outliers(x, fpass, RT, sdv)) 
+      dt.fil = dlply(dt, vars, function(x) outliers(x, fpass, RT, sdv)) 
       dt.filtered  = ldply(dt.fil, function(x) rbind(x[[1]]))
       filtered = ldply(dt.fil, function(x) rbind(x[[2]]))
     }
-  }
   
   return(list(Data_Filtered=dt.filtered, Nb_Data_Filtered=filtered))
 }

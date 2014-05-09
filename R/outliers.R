@@ -46,39 +46,45 @@
 #' # Filter with only a low thresold with 2 standard deviations
 #' outliers(df, target='RT', fpass=c(100, NA), sdv=2)
 #'
-outliers  <- function(data, fpass=NULL, target, sdv=3){
+outliers  <- function(data, fpass=NULL, target, sdv=NULL){
     # GTV and BR - 13/10/2011 - v01
   
+    dfnames = NULL
     nb_tot = nrow(data)
     ### Filtering lowest and highest values from given thresholds ---------------
     if( !is.null(fpass) ){
       cur_obs = nrow(data)
       if( !is.na(fpass[1]) ){  
         data = data[ data[,target]>=fpass[1], ]
+        dfnames = c(dfnames, 'low-cutoff')
       }
       filtered = cur_obs - nrow(data)
       cur_obs = nrow(data)
       if( !is.na(fpass[2]) ){
         data = data[ data[,target]<=fpass[2], ]
+        dfnames = c(dfnames, 'high-cutoff')
       }
       filtered = c(filtered, cur_obs - nrow(data))
     }
   
-    ### Filtering lowest and highest values from a given standard deviation -----
-    cur_obs = nrow(data)
-    
-    mean_cond  <- mean(data[,target], na.rm=T)  # Compute the mean of the matrix
-    std_dev    <- sd(data[,target], na.rm=T)    # Compute the standard deviation of the matrix
-
-    cut_off_high  <- mean_cond + sdv*std_dev    # Compute the high cut-off score
-    cut_off_low   <- mean_cond - sdv*std_dev    # Compute the low  cut-off score
-
-    # Find RT values within the two cut-off scores
-    data  <- data[ data[,target]<= cut_off_high & data[,target]>= cut_off_low,]
-    filtered = c(filtered, cur_obs-nrow(data))
+    if( !is.null(sdv) ){
+      ### Filtering lowest and highest values from a given standard deviation -----
+      cur_obs = nrow(data)
+      
+      mean_cond  <- mean(data[,target], na.rm=T)  # Compute the mean of the matrix
+      std_dev    <- sd(data[,target], na.rm=T)    # Compute the standard deviation of the matrix
+      
+      cut_off_high  <- mean_cond + sdv*std_dev    # Compute the high cut-off score
+      cut_off_low   <- mean_cond - sdv*std_dev    # Compute the low  cut-off score
+      
+      # Find RT values within the two cut-off scores
+      data  <- data[ data[,target]<= cut_off_high & data[,target]>= cut_off_low,]
+      filtered = c(filtered, cur_obs-nrow(data))  
+      dfnames = c(dfnames, 'by_sdv')
+    }
     ptot = round((sum(filtered)/nb_tot)*100, 2)
     filtered = c(filtered, ptot)
-    names(filtered) = c('low-cutoff', 'high-cutoff', 'by_sdv', '%subtot')
+    names(filtered) = c(dfnames, 'percent_subtot')
                  
     return(list(data_filtered=data, filtered=filtered))
 }
