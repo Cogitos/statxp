@@ -34,9 +34,10 @@ Return a list with a data frame of filtered data and
 A function to remove outliers of a given data frame. Based on the
  outliers function of the present package. filtRT applies the
  outliers function according to each subject and/or condition.
-Data can be excluded based on a minimal/maximal value and/or based on
- a given standard deviation value. Outliers are excluded either
- from all values or regarding each subject and condition.
+Data can be excluded based on a minimal/maximal values (thresholds)
+ and/or based on a given standard deviation value from the mean.
+Outliers are excluded either from all values or regarding each
+ subject and condition.
  Return a data frame of filtered data as well as the percentage
  of data filtered.
 }
@@ -73,7 +74,7 @@ Guillaume T. Vallet \email{gtvallet@gmail.com}, University of de Montreal (Canad
 Benoit A. Riou \email{riouba@gmail.com}, Lyon2 University (France)
 }
 \seealso{
-\code{\link{outliers}}
+\code{vignette("outliers", package = "statxp")}
 }
 \keyword{filter,}
 \keyword{outliers}

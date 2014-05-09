@@ -1,8 +1,9 @@
 #' Export ezANOVA results to Knitr/Sweave in APA format
 #' 
-#' A function to format a given treatement (i.e. row) of an ezANOVA
-#'  to a Markdown/LaTeX format according to the APA guidelines. The
-#'  output can be directly used in a Knitr/Sweave document.
+#' A function to format a given treatement (i.e. row) of an 
+#'   ezANOVA (package "ez") to a Markdown/LaTeX format according
+#'   to the APA guidelines.
+#' The output can be directly used in a Knitr/Sweave document.
 #' The function tests if the Mauchly's test for sphericity is 
 #'  significant, and if so, report the corrected values.
 #' 

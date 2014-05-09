@@ -3,7 +3,7 @@
 \alias{outliers}
 \title{Remove extreme with thresolds and values below and above the mean}
 \usage{
-outliers(data, fpass = NULL, target, sdv = 3)
+outliers(data, fpass = NULL, target, sdv = NULL)
 }
 \arguments{
 \item{data}{A data frame in the long format (one row per record).}

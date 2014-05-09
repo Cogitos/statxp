@@ -1,10 +1,10 @@
 #' Export ezANOVA results to an csv file
 #' 
-#' A function to export an ezANOVA object to a csv file. The function
-#'  exports the classic ANOVA table as well as the Mauchly/Levene test
-#'  and the appropriated corrections. Optionally, the function can 
-#'  export the descriptive statistics as well ad the related posthoc
-#'  analyses.
+#' A function to export an ezANOVA (package "ez")
+#'  object to a csv file. The function exports the classic ANOVA table
+#'  as well as the Mauchly/Levene test and the appropriated corrections.
+#' Optionally, the function can export the descriptive statistics
+#'  as well ad the related posthoc analyses.
 #' 
 #' @author
 #' Guillaume T. Vallet \email{gtvallet@@gmail.com}, University of de Montreal (Canada);

@@ -17,11 +17,11 @@ Defaults to NULL.}
 the pairwise.t.test function.}
 }
 \description{
-A function to export an ezANOVA object to a csv file. The function
- exports the classic ANOVA table as well as the Mauchly/Levene test
- and the appropriated corrections. Optionally, the function can
- export the descriptive statistics as well ad the related posthoc
- analyses.
+A function to export an \code{vignette("ezANOVA", package = "ez")}
+ object to a csv file. The function exports the classic ANOVA table
+ as well as the Mauchly/Levene test and the appropriated corrections.
+Optionally, the function can export the descriptive statistics
+ as well ad the related posthoc analyses.
 }
 \examples{
 # Generate fake data with a subject number in the first colum, a
@@ -46,6 +46,9 @@ writeAOV('test.csv', anova, data=dstats, posthoc=posthoc)
 }
 \author{
 Guillaume T. Vallet \email{gtvallet@gmail.com}, University of de Montreal (Canada);
+}
+\seealso{
+\code{\link{ez}}
 }
 \keyword{ANOVA,}
 \keyword{csv,}

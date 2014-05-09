@@ -26,7 +26,7 @@
 #'  per condition.
 #' @keywords reaction times, filter, outilers
 #' @export
-#' @seealso \code{\link{filtRT}}
+#' @seealso \code{\link{filtRT}} 
 #' @examples
 #' # Generate fake data with a subject number in the first colum, 
 #' #   a fake experimental condition in the second column and fake

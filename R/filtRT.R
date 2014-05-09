@@ -4,9 +4,10 @@
 #' A function to remove outliers of a given data frame. Based on the
 #'  outliers function of the present package. filtRT applies the 
 #'  outliers function according to each subject and/or condition.
-#' Data can be excluded based on a minimal/maximal value and/or based on 
-#'  a given standard deviation value. Outliers are excluded either 
-#'  from all values or regarding each subject and condition. 
+#' Data can be excluded based on a minimal/maximal values (thresholds)
+#'  and/or based on a given standard deviation value from the mean. 
+#' Outliers are excluded either from all values or regarding each
+#'  subject and condition. 
 #'  Return a data frame of filtered data as well as the percentage
 #'  of data filtered.
 #' 
@@ -33,7 +34,6 @@
 #'  per condition.
 #' @keywords reaction times, filter, outliers
 #' @export
-#' @seealso \code{\link{outliers}}
 #' @examples
 #' # Generate fake data with a subject number in the first colum, a fake experimental condition
 #'  in the second column and fake reaction times in the third column
