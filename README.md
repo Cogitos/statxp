@@ -11,6 +11,7 @@
 ## Table of Contents
 
 - [Licence](#licence)
+- [Dependencies](#dependencies)
 - [Installation](#install)
 - [Functions](#functions)
 
@@ -18,6 +19,12 @@
 ## <a name='licence'></a>Licence
 
 This package is released under the [Creative Common Attribution-NonCommercial-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+
+
+## <a name='dependencies'></a>Dependencies
+
+*Predata* depends on the ``plyr`` package. 
+You can install *plyr* by typing ``install.packages('plyr')`` in your R console.
 
 
 ## <a name='install'></a>Installation
