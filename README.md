@@ -7,6 +7,9 @@
 *Statxp* is R package developed for a personal use to improve some experimental analysis processing. 
 *Statxp* offers a set of functions to clean data, export and format results into a [knitr](http://yihui.name/knitr/)/[sweave](http://www.stat.uni-muenchen.de/~leisch/Sweave/) document.
 
+The detailed description of the functions as well as examples are provided in the R documentation. 
+Type ``?*function_name*`` in your R console to access it.
+
 
 ## Table of Contents
 
