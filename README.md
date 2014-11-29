@@ -26,8 +26,8 @@ This package is released under the [Creative Common Attribution-NonCommercial-Sh
 
 ## <a name='dependencies'></a>Dependencies
 
-*Predata* depends on the ``plyr`` package. 
-You can install *plyr* by typing ``install.packages('plyr')`` in your R console.
+*Predata* depends on the ``dplyr`` package. 
+You can install *dplyr* by typing ``install.packages('dplyr')`` in your R console.
 
 
 ## <a name='install'></a>Installation
