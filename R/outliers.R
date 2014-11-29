@@ -22,6 +22,9 @@
 #'  Defaults to NULL.
 #' @param sdv A number indicating how many standard deviations should be
 #'  used to filter the data. Defaults to 3.
+#' @param tokeep A vector of column names to indicate in the filtering section
+#'  which conditions were used in the processing, typically subjects and/or
+#'  experimental condition. Default to NULL.
 #' @return Return a list with a data frame of filtered data and 
 #'  a data frame of number of data excluded and its relative percentage
 #'  per condition.
@@ -42,13 +45,15 @@
 #' df[15,3] <- 2340
 #' 
 #' # Filter with low and high thresolds and with 3 standard deviations
-#' outliers(df, RT='RT', fpass=c(100,1000), sdv=3)
+#' outliers(df, target='RT', fpass=c(100,1000), sdv=3)
 #' 
 #' # Filter with only a low thresold with 2 standard deviations
 #' outliers(df, target='RT', fpass=c(100, NA), sdv=2)
 #'
-outliers  <- function(data, fpass=NULL, target, sdv=NULL){
-    # GTV and BR - 13/10/2011 - v01
+outliers  <- function(data, fpass=NULL, target, sdv=NULL, tokeep=NULL){
+    # GTV and BR -- 13/10/2011 -- v01
+    # GTV        -- 28/11/2014 -- v02 Add the tokeep variable to indicate
+    #                           which variables were proceeded  
   
     dfnames = NULL
     nb_tot = nrow(data)
@@ -84,8 +89,13 @@ outliers  <- function(data, fpass=NULL, target, sdv=NULL){
       dfnames = c(dfnames, 'by_sdv')
     }
     ptot = round((sum(filtered)/nb_tot)*100, 2)
-    filtered = c(filtered, ptot)
-    names(filtered) = c(dfnames, 'percent_subtot')
-                 
+    filtered = t(as.data.frame(c(filtered, ptot)))
+    colnames(filtered) = c(dfnames, 'percent_subtot')
+    if( !is.null(tokeep) ){
+      conds = unique(data[, which(names(data) %in% tokeep)])  
+      if( nrow(conds)==1){
+        filtered = cbind(conds, filtered)
+      }else{ warning("Could not precise which variables are associated with the filtering because the 'tokeep' variable(s) return more than one unique outupt.") }
+    }        
     return(list(data_filtered=data, filtered=filtered))
 }

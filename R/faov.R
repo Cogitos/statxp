@@ -12,6 +12,8 @@
 #' 
 #' @param anova An ezANOVA object.
 #' @param rnb A digit indicating which row to format.
+#' @param apa A boolean index to format results according to the APA 
+#'  guideline (remove 0 before the decimal point). Default to False.
 #' @return Return a string reporting an inline ANOVA results according
 #'  to the APA guideline.
 #' @keywords ANOVA, APA, Knitr/Sweave
@@ -34,9 +36,11 @@
 #' # Format the results
 #' faov(anova, rnb=1)
 #' 
-faov  <- function(anova, rnb){
+faov  <- function(anova, rnb, apa=FALSE){
   # GT Vallet -- Lyon2 University
   #  2013/05/31 -- v01
+  #  2014/09/24 -- v01.02 -- add insecable spaces and correction for subscripts placement
+  #  2014/09/25 -- v01.03 -- add apa option to remove 0 before the decimal point
   
   ### Define if treatment to report need to be corrected
   if( length(anova) > 2 ){
@@ -69,21 +73,22 @@ faov  <- function(anova, rnb){
     # Extract the eta square
     eta = round(ttt[rnb, 7], 2)
     # Extract the p value and format the outupt according to its significance
-    p = ttt[rnb, 5]
-  } 
-
-  if( p < .05){
-    p = ", p < .05"
-  }else{
-    p = paste(", p = ", round(p, 2), sep="")
+    p = round(ttt[rnb, 5], 2)
+    # Format p and eta values according to APA guidelines if apa=T
+    if( apa ){
+      f = fapa(f)
+      eta = fapa(eta)
+      p = fapa(p, p=T)
+    } 
   }
+
   # Format the data according to the APA guidelines
-  if( f < 1 ){
-    str.aov = paste("$F(", dfn, ", ", dfd, ") < 1$", sep="")
+  if( as.numeric(f) < 1 ){
+    str.aov = paste("$F(", dfn, ",~", dfd, ")~<~1$", sep="")
   }else if( !corr ){
-    str.aov = paste("$F(", dfn, ", ", dfd, ") = ", f, p, ", \\eta^2_g = ", eta, "$", sep="")
+    str.aov = paste("$F(", dfn, ",~", dfd, ")~=~", f, "$, ", p, ", $\\eta^{2}$\\phantom{}$_{g}~=~", eta, "$", sep="")
   }else {
-    str.aov = paste("$F(", dfn, ", ", dfd, ") = ", f, p, "$", sep="")
+    str.aov = paste("$F(", dfn, ",~", dfd, ")~=~", f, "$, ", p, sep="")
   }
   return(str.aov)
 }

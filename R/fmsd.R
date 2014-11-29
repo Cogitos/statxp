@@ -11,6 +11,8 @@
 #'  the standard deviation (sd).
 #' @param pm A logical value to format the mean and the sd all in 
 #'  parentheses. Defaults to FALSE.
+#' @param toround A vector of length 2 to indicate how to round (1)
+#'  the mean and (2) the standard deviation.
 #' @return Return a string reporting an inline mean and standard
 #'  deviation (sd) according to the APA guideline.
 #' @keywords mean, sd, APA, Knitr/Sweave
@@ -26,9 +28,16 @@
 #' # Formatting as (mean +- sd)
 #' fmsd(data, pm=T)    
 #' 
-fmsd = function(data, pm=FALSE ){
-    m = round(mean(data, na.rm=T), 2)
-    sd = round(sd(data, na.rm=T), 1)
+#' # Formatting with no decimals
+#' fmsd(data, toround=c(0,0))
+fmsd = function(data, pm=FALSE, toround=c(2,1) ){
+    if( is.data.frame(data) ){
+      m = round(apply(data, 2, mean, na.rm=T), toround[1])
+      sd = round(apply(data, 2, sd, na.rm=T), toround[2])  
+    }else{
+      m = round(mean(data, na.rm=T), toround[1])
+      sd = round(sd(data, na.rm=T), toround[2])
+    }
     if( pm ){
       return(paste('(', m, ' $\\pm$ ', sd, ')', sep=''))
     }

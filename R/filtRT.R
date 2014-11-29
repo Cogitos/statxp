@@ -62,21 +62,23 @@
 #' # Filter with only a low thresold with 2 standard deviations by subjects
 #' filtRT(df, RT='RT', vars='Subj', fpass=c(100, NA), sdv=2)
 #'  
-filtRT = function(dt, RT='RT', vars=NULL, fpass=NULL, sdv=NULL ){
+filtRT = function(dt, RT='RT', vars=NULL, fpass=NULL, sdv=NULL){
   # GT Vallet    --  Lyon 2 University
   #   2013/07/01 --  v01
   #   2014/05/01 --  v02 Adding vars as an option.
   #                       Filtering only lowest or highest RT value. 
   #                       Adding the percentage of data filtered.
-
+  #   2014/11/28 -- v03 Remove Plyr functions to avoid conflicts with dplyr 
     if( is.null(vars) ){
       dt.fil = outliers(dt, fpass, RT, sdv)
       dt.filtered = dt.fil[[1]]
       filtered = dt.fil[[2]]
     }else{
-      dt.fil = dlply(dt, vars, function(x) outliers(x, fpass, RT, sdv)) 
-      dt.filtered  = ldply(dt.fil, function(x) rbind(x[[1]]))
-      filtered = ldply(dt.fil, function(x) rbind(x[[2]]))
+      factors = lapply(vars, function(x) factor(dt[,x]))
+      names(factors) = vars
+      dt.fil = by(dt, factors, function(x) outliers(x, fpass, RT, sdv, tokeep=vars))
+      dt.filtered = as.data.frame(do.call('rbind', lapply(dt.fil, FUN = `[[`, 1)))
+      filtered = as.data.frame(do.call('rbind', lapply(dt.fil, FUN = `[[`, 2)))
     }
   
   return(list(Data_Filtered=dt.filtered, Nb_Data_Filtered=filtered))

@@ -1,6 +1,6 @@
 Package: statxp
 Title: Filter data, format and export statistical results
-Version: 0.1
+Version: 0.2
 Authors@R: "Guillaume T. Vallet <gtvallet@gmail.com> [aut, cre]"
 Description: The present package offers differents functions to help the
     statistical processing such as filtering reaction times (RT), exporting
@@ -8,6 +8,5 @@ Description: The present package offers differents functions to help the
     analyses to a csv file.
 Depends:
     R (>= 3.1.0),
-    plyr
 License: CC-BY-NC-SA
 LazyData: true
