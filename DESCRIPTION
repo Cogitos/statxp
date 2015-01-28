@@ -8,5 +8,6 @@ Description: The present package offers differents functions to help the
     analyses to a csv file.
 Depends:
     R (>= 3.1.0),
+    grid
 License: CC-BY-NC-SA
 LazyData: true

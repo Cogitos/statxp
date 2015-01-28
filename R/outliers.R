@@ -54,7 +54,7 @@ outliers  <- function(data, fpass=NULL, target, sdv=NULL, tokeep=NULL){
     # GTV and BR -- 13/10/2011 -- v01
     # GTV        -- 28/11/2014 -- v02 Add the tokeep variable to indicate
     #                           which variables were proceeded  
-  
+    
     dfnames = NULL
     nb_tot = nrow(data)
     ### Filtering lowest and highest values from given thresholds ---------------

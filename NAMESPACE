@@ -2,6 +2,7 @@
 
 export(faov)
 export(fapa)
+export(figtheme)
 export(filtRT)
 export(fmsd)
 export(ftt)
