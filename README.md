@@ -59,4 +59,6 @@ Different options allow to add the*d* of Cohen, change the format, etc.
 This function was designed to easily export an ANOVA result (from the ez package) into a csv file.
 The options allow to add descriptive statistics and/or posthoc analysis.
 
+### figtheme
 
+This function return a ggplot graphic which better suits for publication with a white theme, bigger fonts, and a choice of brewer color set. 
