@@ -91,11 +91,18 @@ outliers  <- function(data, fpass=NULL, target, sdv=NULL, tokeep=NULL){
     ptot = round((sum(filtered)/nb_tot)*100, 2)
     filtered = t(as.data.frame(c(filtered, ptot)))
     colnames(filtered) = c(dfnames, 'percent_subtot')
-    if( !is.null(tokeep) ){
-      conds = unique(data[, which(names(data) %in% tokeep)])  
-      if( nrow(conds)==1){
-        filtered = cbind(conds, filtered)
-      }else{ warning("Could not precise which variables are associated with the filtering because the 'tokeep' variable(s) return more than one unique outupt.") }
-    }        
-    return(list(data_filtered=data, filtered=filtered))
+    if( nrow(data)==0 ){ 
+      warning("No data to return ! Perhaps your filters are too narrow...")
+      return(list(data_filtered=data, filtered=filtered)) 
+    }else{
+      if( !is.null(tokeep) ){
+        conds = unique(data[, which(names(data) %in% tokeep)])
+        if( nrow(conds)==1 ){
+          filtered = cbind(conds, filtered)
+        }else{
+          warning("Could not precise which variables are associated with the filtering because the 'tokeep' variable(s) return more than one unique outupt.") 
+        }
+      } 
+      return( list(data_filtered=data, filtered=filtered) )
+    }
 }
