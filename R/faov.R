@@ -41,9 +41,13 @@ faov  <- function(anova, rnb, apa=FALSE){
   #  2013/05/31 -- v01
   #  2014/09/24 -- v01.02 -- add insecable spaces and correction for subscripts placement
   #  2014/09/25 -- v01.03 -- add apa option to remove 0 before the decimal point
+  #  2015/08/26 -- v01.04 -- update script to new ez behavior
+
+  ### Allow to define rnb as a name or an index
+  rownames(anova[['ANOVA']]) = anova[['ANOVA']][,1]
   
   ### Define if treatment to report need to be corrected
-  if( length(anova) > 2 ){
+  if( length(anova) < 2 ){
     corr = FALSE
   }else{ 
     if( anova[[2]][rnb,4]=='*' ){
@@ -54,10 +58,10 @@ faov  <- function(anova, rnb, apa=FALSE){
   }
   
   # Extract the degree of freedom of the numerator and denominator
-  dfn = anova[[1]][rnb, 2]
-  dfd = anova[[1]][rnb, 3]
+  dfn = anova[['ANOVA']][rnb, 2]
+  dfd = anova[['ANOVA']][rnb, 3]
   # Extract the F value and round it
-  f = round(anova[[1]][rnb, 4], 2)
+  f = round(anova[['ANOVA']][rnb, 4], 2)
   
   if( corr ){
     ttt = anova[[3]]
