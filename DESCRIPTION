@@ -11,3 +11,4 @@ Depends:
     grid
 License: CC-BY-NC-SA
 LazyData: true
+RoxygenNote: 5.0.1
