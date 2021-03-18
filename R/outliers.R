@@ -54,6 +54,7 @@ outliers  <- function(data, fpass=NULL, target, sdv=NULL, tokeep=NULL){
     # GTV and BR -- 13/10/2011 -- v01
     # GTV        -- 28/11/2014 -- v02 Add the tokeep variable to indicate
     #                           which variables were proceeded  
+    # GTV        -- 18/03/2021 -- V03 Ensure that filtered object exists if no fpass used
     
     dfnames = NULL
     nb_tot = nrow(data)
@@ -85,7 +86,11 @@ outliers  <- function(data, fpass=NULL, target, sdv=NULL, tokeep=NULL){
       
       # Find RT values within the two cut-off scores
       data  <- data[ data[,target]<= cut_off_high & data[,target]>= cut_off_low,]
-      filtered = c(filtered, cur_obs-nrow(data))  
+      if(exists("filtered")){
+        filtered = c(filtered, cur_obs-nrow(data))  
+      }else{
+        filtered = cur_obs-nrow(data)  
+      }
       dfnames = c(dfnames, 'by_sdv')
     }
     ptot = round((sum(filtered)/nb_tot)*100, 2)
