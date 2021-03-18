@@ -55,7 +55,8 @@ outliers  <- function(data, fpass=NULL, target, sdv=NULL, tokeep=NULL){
     # GTV        -- 28/11/2014 -- v02 Add the tokeep variable to indicate
     #                           which variables were proceeded  
     # GTV        -- 18/03/2021 -- V03 Ensure that filtered object exists if no fpass used
-    
+    #### Ensure data is a data frame
+    data = as.data.frame(data)
     dfnames = NULL
     nb_tot = nrow(data)
     ### Filtering lowest and highest values from given thresholds ---------------
